@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-c {
+  background: rgb(134, 105, 133, 0.85);
+  border-radius: 3px;
+}
+
+.loading {
+  height: 18px;
+  width: 18px;
+  background: transparent !important;
+}

@@ -1,0 +1,19 @@
+.areaMain {
+  position: relative;
+}
+.text {
+  width: 700px;
+}
+
+.areaButton {
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+  z-index: 3;
+}
+
+@media screen and (max-width: 414px) {
+  .text {
+    width: 380px;
+  }
+}

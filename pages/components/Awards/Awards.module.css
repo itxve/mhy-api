@@ -1,0 +1,131 @@
+.list-main {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  margin: 5px;
+  position: relative;
+  border: 1px solid burlywood;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signed {
+  filter: grayscale(80%);
+}
+.received {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: red;
+  transform: skewY(-20deg);
+  background-color: transparent;
+  font-weight: 800;
+  filter: unset;
+  border: 4px solid red;
+  z-index: 5;
+  text-align: center;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #eacb3f;
+  filter: contrast(200%) drop-shadow(2px 4px 6px rgb(180, 120, 23));
+  color: #a45d21;
+  font-weight: 800;
+  z-index: 5;
+  text-align: center;
+  cursor: pointer;
+  animation: change 1s ease 0s infinite alternate forwards;
+}
+
+@keyframes change {
+  0% {
+    right: -8px;
+  }
+  30% {
+    right: -6px;
+  }
+  30% {
+    right: -10px;
+  }
+  100% {
+    right: -6px;
+  }
+}
+
+.list-awards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 700px;
+}
+
+.name {
+  text-align: center;
+}
+.day {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  border-top: 1px solid burlywood;
+}
+
+.today-card {
+  border: rgb(214, 101, 8) solid 2px;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  border-bottom: 1px solid burlywood;
+}
+
+.awards-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.awards-container > div {
+  padding: 10px;
+}
+
+.awards-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex: 6;
+}
+
+@media screen and (max-width: 414px) {
+  .awards-container {
+    flex-direction: column-reverse;
+  }
+  .list-awards {
+    width: 380px;
+  }
+  .icon {
+    width: 56px;
+    height: 56px;
+  }
+  .received {
+    width: 56px;
+    height: 56px;
+  }
+  .list-main {
+    width: 56px;
+  }
+}

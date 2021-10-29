@@ -1,0 +1,47 @@
+.main {
+  display: flex;
+  flex-direction: row;
+}
+.user-card {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.user-item:hover {
+  background: rgb(177, 195, 227);
+}
+
+.user-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.user-item > span {
+  margin: 10px 5px;
+}
+
+.user-item > span:first-child {
+  font-size: 22px;
+}
+.user-span {
+  color: #b0a435;
+}
+
+.user-item-active {
+  cursor: pointer;
+  background: cornflowerblue;
+}
+
+.user-item-active:hover {
+  background: rgb(75, 117, 195);
+}
+
+.user-item-active > span {
+  color: aliceblue;
+}
+
+.user-item > span:first-child {
+  font-size: 22px;
+}
