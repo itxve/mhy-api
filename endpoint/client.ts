@@ -1,7 +1,7 @@
 import NetFetch from "@/request";
 import config from "@/config";
 
-const Net = new NetFetch(config.ApiServer);
+const Net = new NetFetch(config.ApiServer + "/api");
 
 function rewards() {
   return Net.getFetch(`/rewards`);
