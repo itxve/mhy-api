@@ -5,15 +5,17 @@ import { MultipleClass } from "@/util";
 import { C } from "@/endpoint";
 export default function AwardsList({ month, awards }: MH.C.AwardsListC) {
   return (
-    <>
-      <div>{month}月签到奖励列表</div>
+    <div>
+      <div className={AwardsStyle["month-text"]}>
+        <b>{month}</b>月签到奖励列表
+      </div>
       <div className={AwardsStyle["list-awards"]}>
         {awards &&
           awards.map((it, index) => {
             return <AwardsItem key={"it" + index} {...{ ...it, index }} />;
           })}
       </div>
-    </>
+    </div>
   );
 }
 
@@ -56,9 +58,6 @@ const AwardsItem = ({
       className={MultipleClass([
         AwardsStyle["list-main"],
         {
-          [AwardsStyle["signed"]]: signed,
-        },
-        {
           [AwardsStyle["today-card"]]: today,
         },
       ])}
@@ -66,11 +65,19 @@ const AwardsItem = ({
     >
       {signed && <span className={AwardsStyle.received}>已领取</span>}
       {canSign && <span className={AwardsStyle.badge}>领</span>}
-      <div>
-        <img className={AwardsStyle.icon} src={icon} />
+      <div className={AwardsStyle["bk"]}>
+        <img
+          className={MultipleClass([
+            {
+              [AwardsStyle["signed"]]: signed,
+            },
+            AwardsStyle.icon,
+          ])}
+          src={icon}
+        />
       </div>
       <div className={AwardsStyle.name}>x{cnt}</div>
-      <div className={AwardsStyle.day}>第{index + 1}天</div>
+      <div className={AwardsStyle["day-text"]}>第{index + 1}天</div>
     </div>
   );
 };
