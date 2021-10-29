@@ -108,9 +108,8 @@
 .month-text > b {
   font-size: 22px;
   color: transparent;
-  background: linear-gradient(to right, #f9c1d1, #4a9df8);
+  background: linear-gradient(15deg, #f9c1d1, #4a9df8);
   background-clip: text;
-  filter: contrast(200%);
 }
 
 .awards-container {
