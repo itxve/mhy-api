@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { C } from "@/pages/endpoint";
+import { C } from "@/endpoint";
 import AwardsList from "./AwardsList";
 import Cookie from "@/pages/components/Cookie";
 import AwardsStyles from "./Awards.module.css";
 import UserList from "@/pages/components/UserList";
-import { UsersContext } from "@/pages/hooks";
-import util from "@/pages/util";
+import { UsersContext } from "@/hooks";
+import util from "@/util";
 import Link from "@/pages/components/Link";
 
 export default function Awards() {
@@ -81,15 +81,15 @@ export default function Awards() {
             links={[
               {
                 name: "内鬼爆料",
-                link: "https://genshin.honeyhunterworld.com/?lang=CHS",
+                url: "https://genshin.honeyhunterworld.com/?lang=CHS",
               },
               {
                 name: "原魔计算器",
-                link: "https://genshin.mingyulab.com",
+                url: "https://genshin.mingyulab.com",
               },
               {
                 name: "原神WIKI_BWIKI_哔哩哔哩",
-                link: "https://wiki.biligame.com/ys/%E8%A7%92%E8%89%B2",
+                url: "https://wiki.biligame.com/ys/%E8%A7%92%E8%89%B2",
               },
             ]}
           />

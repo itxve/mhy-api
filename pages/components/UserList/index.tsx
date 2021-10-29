@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { UsersContext } from "@/pages/hooks";
-import { MultipleClass } from "@/pages/util";
+import { UsersContext } from "@/hooks";
+import { MultipleClass } from "@/util";
 import UserListStyle from "./UserList.module.css";
 
 export default function UserList() {

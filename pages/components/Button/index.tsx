@@ -1,6 +1,6 @@
 import Loading from "@/assets/loading.svg";
 import ButttonStyle from "./Buttton.module.css";
-import { MultipleClass } from "@/pages/util";
+import { MultipleClass } from "@/util";
 import { useState } from "react";
 
 export default function Button({ onClick, children }: MH.C.ButtonProps) {

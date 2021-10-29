@@ -1,4 +1,4 @@
-import { S } from "../endpoint";
+import { S } from "../../endpoint";
 import type { NextApiRequest, NextApiResponse } from "next";
 /**
  * 用户信息接口接口

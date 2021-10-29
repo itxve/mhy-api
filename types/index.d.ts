@@ -69,7 +69,7 @@ declare namespace MH {
     type ButtonProps = {
       onClick?: () => Promise<T>;
     } & { children?: ReactNode | undefined };
-    type Link = { name: string; link: string };
+    type Link = { name: string; url: string };
     type LinkProps = Link | Array<Link>;
   }
 }

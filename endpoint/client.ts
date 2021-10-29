@@ -1,4 +1,4 @@
-import NetFetch from "../request/index";
+import NetFetch from "@/request";
 
 const Net = new NetFetch("http://localhost:3000/api");
 

@@ -1,5 +1,5 @@
-import { S } from "../endpoint";
-import { ACT_ID } from "@/pages/constant";
+import { S } from "@/endpoint";
+import { ACT_ID } from "@/constant";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 /**

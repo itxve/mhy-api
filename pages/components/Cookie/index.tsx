@@ -1,15 +1,11 @@
 import { useState, useContext } from "react";
 import CookieStyles from "./Cookie.module.css";
 import Button from "@/pages/components/Button";
-import { C } from "@/pages/endpoint";
-import { UsersContext } from "@/pages/hooks";
-import util from "@/pages/util";
+import { C } from "@/endpoint";
+import { UsersContext } from "@/hooks";
+import util from "@/util";
 export default function Cookie() {
-  return (
-    <div>
-      <CookieTextAreaVolidata />
-    </div>
-  );
+  return <CookieTextAreaVolidata />;
 }
 
 const CookieTextAreaVolidata = () => {

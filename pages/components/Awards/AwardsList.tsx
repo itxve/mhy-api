@@ -1,8 +1,8 @@
 import AwardsStyle from "./Awards.module.css";
 import { useContext } from "react";
-import { UsersContext } from "@/pages/hooks";
-import { MultipleClass } from "@/pages/util";
-import { C } from "@/pages/endpoint";
+import { UsersContext } from "@/hooks";
+import { MultipleClass } from "@/util";
+import { C } from "@/endpoint";
 export default function AwardsList({ month, awards }: MH.C.AwardsListC) {
   return (
     <>
