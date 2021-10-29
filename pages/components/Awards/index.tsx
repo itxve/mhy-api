@@ -51,18 +51,20 @@ export default function Awards() {
 
   const setCurrentUser: MH.D.setCurrentUser = (game_uid) => {
     const user = util.getLocalUsers()[game_uid!] || {};
-    setUser(user);
-    C.signRecord({
-      cookie: user.cookie!,
-      region: user.region!,
-      game_uid: user.game_uid!,
-    }).then((res) => {
-      const account = util.getLocalUsers();
-      account[`${user.game_uid}`].record = res;
-      util.setLocalUsers(account);
-      console.log(account[`${user.game_uid}`], "account[`${user.game_uid}`]");
-      setUserSignRecord(res);
-    });
+    if (user.cookie) {
+      setUser(user);
+      C.signRecord({
+        cookie: user.cookie!,
+        region: user.region!,
+        game_uid: user.game_uid!,
+      }).then((res) => {
+        const account = util.getLocalUsers();
+        account[`${user.game_uid}`].record = res;
+        util.setLocalUsers(account);
+        console.log(account[`${user.game_uid}`], "account[`${user.game_uid}`]");
+        setUserSignRecord(res);
+      });
+    }
   };
 
   return (
@@ -98,7 +100,9 @@ export default function Awards() {
           <Cookie />
           <AwardsList {...awards} />
         </div>
-        <UserList />
+        <div>
+          <UserList />
+        </div>
       </div>
     </UsersContext.Provider>
   );

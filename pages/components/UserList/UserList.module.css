@@ -1,10 +1,8 @@
 .main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .user-card {
-  margin-left: 20px;
-  margin-top: 20px;
 }
 .user-item:hover {
   background: rgb(177, 195, 227);
@@ -19,7 +17,7 @@
 }
 
 .user-item > span {
-  margin: 10px 5px;
+  margin: 5px 3px;
 }
 
 .user-item > span:first-child {
@@ -42,6 +40,11 @@
   color: aliceblue;
 }
 
-.user-item > span:first-child {
-  font-size: 22px;
+@media screen and (max-width: 414px) {
+  .user-item > span:first-child {
+    font-size: 18px;
+  }
+  .user-item > :not(span:first-child) {
+    font-size: 14px;
+  }
 }

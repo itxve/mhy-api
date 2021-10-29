@@ -2,3 +2,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.link-item {
+  color: rgb(34, 148, 209);
+  margin: 5px;
+  text-decoration-line: underline;
+}

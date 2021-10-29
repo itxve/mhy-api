@@ -7,12 +7,14 @@ export default function UserList() {
   const { users } = useContext(UsersContext);
   return (
     <div className={UserListStyle["user-card"]}>
-      <div className={UserListStyle["user-span"]}>账号列表:</div>
-      {users &&
-        Object.keys(users).map((key) => {
-          const u = users[key];
-          return <ListInfo key={u.game_uid} {...u} />;
-        })}
+      <div className={UserListStyle["user-span"]}>账号列表:(点击切换)</div>
+      <div className={UserListStyle["main"]}>
+        {users &&
+          Object.keys(users).map((key) => {
+            const u = users[key];
+            return <ListInfo key={u.game_uid} {...u} />;
+          })}
+      </div>
     </div>
   );
 }

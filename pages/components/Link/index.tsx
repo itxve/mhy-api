@@ -10,7 +10,7 @@ export default function Link({ links }: { links: MH.C.LinkProps }) {
         .filter((e) => !!e)
         .map((e) => {
           return (
-            <a key={e.url} href={e.url}>
+            <a className={LinkStyle["link-item"]} key={e.url} href={e.url}>
               {e.name}
             </a>
           );
