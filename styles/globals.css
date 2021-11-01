@@ -1,22 +1,37 @@
 :root {
   --proeye: #eae2db;
-  --text: #8a8373;
+  --text: rgb(64, 152, 224);
+  --award-boder: rgb(113 117 136);
+  --link-color: wheat;
+  --received-boder: red;
+  --card-bg: rgba(221, 216, 209, 0.85);
+  --border-radius: 2px;
+  --award-today: #fb6304;
 }
 
 html,
 body {
+  background: url("@/assets/pc.jpg") no-repeat;
+  background-size: cover;
   background-color: var(--proeye);
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
 }
 
 a {
-  color: inherit;
+  color: var(--link-color);
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background: url("@/assets/phone.jpg") no-repeat;
+    background-size: cover;
+  }
 }

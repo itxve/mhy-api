@@ -33,7 +33,10 @@ const CookieTextAreaVolidata = () => {
           });
           resolve(true);
         })
-        .catch((e) => reject(e));
+        .catch((e) => reject(e))
+        .finally(() => {
+          setTextValue("");
+        });
     });
   };
 

@@ -5,7 +5,7 @@ import { MultipleClass } from "@/util";
 import { C } from "@/endpoint";
 export default function AwardsList({ month, awards }: MH.C.AwardsListC) {
   return (
-    <div>
+    <div className={AwardsStyle["awards-main"]}>
       <div className={AwardsStyle["month-text"]}>
         <b>{month}</b>月签到奖励列表
       </div>
@@ -37,7 +37,7 @@ const AwardsItem = ({
   //可签到卡片标识
   if (userSignRecord) {
     const { total_sign_day, is_sign } = userSignRecord;
-    canSign = index + 1 === total_sign_day && !is_sign!;
+    canSign = index === total_sign_day && !is_sign!;
     signed = index + 1 <= total_sign_day!;
     today = index + 1 === total_sign_day;
   }

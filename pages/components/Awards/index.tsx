@@ -33,9 +33,36 @@ export default function Awards() {
       setCurrentUser(currentUser!.game_uid);
     }
   };
+  //跟新本地用户信息
+  const refreshRemoteUserInfo = () => {
+    console.log("refresh remote...");
+    const alls = util.getLocalUsers();
+    Object.values(alls).forEach((it) => {
+      it.cookie &&
+        C.userGameInfo(it.cookie)
+          .then((r) => {
+            const { list } = r;
+            list.map((user: MH.D.UserInfo) => {
+              //更新本地的用户信息
+              user.game_uid &&
+                ((alls[user.game_uid] = Object.assign(
+                  alls[user.game_uid],
+                  user
+                )),
+                util.setLocalUsers(alls)),
+                refreshUser();
+            });
+          })
+          .catch((e) => {
+            //标识凭证过期
+            console.log(it.game_uid + "::expired");
+            util.expireUser(it.game_uid!), refreshUser();
+          });
+    });
+  };
 
   useEffect(() => {
-    refreshUser();
+    refreshRemoteUserInfo();
   }, []);
 
   useEffect(() => {
@@ -50,20 +77,25 @@ export default function Awards() {
   };
 
   const setCurrentUser: MH.D.setCurrentUser = (game_uid) => {
-    const user = util.getLocalUsers()[game_uid!] || {};
-    if (user.cookie) {
-      setUser(user);
+    const user = util.getLocalUsers()[game_uid!];
+    if (user?.cookie) {
       C.signRecord({
         cookie: user.cookie!,
         region: user.region!,
         game_uid: user.game_uid!,
-      }).then((res) => {
-        const account = util.getLocalUsers();
-        account[`${user.game_uid}`].record = res;
-        util.setLocalUsers(account);
-        console.log(account[`${user.game_uid}`], "account[`${user.game_uid}`]");
-        setUserSignRecord(res);
-      });
+      })
+        .then((res) => {
+          setUser(user);
+          const account = util.getLocalUsers();
+          account[`${user.game_uid}`].record = res;
+          account[`${user.game_uid}`].expire = false;
+          util.setLocalUsers(account);
+          setUserSignRecord(res);
+        })
+        .catch((e) => {
+          setUser(user);
+          util.expireUser(game_uid!);
+        });
     }
   };
 
@@ -79,30 +111,30 @@ export default function Awards() {
     >
       <div className={AwardsStyles["awards-container"]}>
         <div>
-          <Link
-            links={[
-              {
-                name: "内鬼爆料",
-                url: "https://genshin.honeyhunterworld.com/?lang=CHS",
-              },
-              {
-                name: "原魔计算器",
-                url: "https://genshin.mingyulab.com",
-              },
-              {
-                name: "原神WIKI_BWIKI_哔哩哔哩",
-                url: "https://wiki.biligame.com/ys/%E8%A7%92%E8%89%B2",
-              },
-            ]}
-          />
+          <UserList />
         </div>
         <div className={AwardsStyles["awards-list"]}>
           <Cookie />
           <AwardsList {...awards} />
         </div>
-        <div>
-          <UserList />
-        </div>
+      </div>
+      <div>
+        <Link
+          links={[
+            {
+              name: "内鬼爆料",
+              url: "https://genshin.honeyhunterworld.com/?lang=CHS",
+            },
+            {
+              name: "原魔计算器",
+              url: "https://genshin.mingyulab.com",
+            },
+            {
+              name: "原神WIKI_BWIKI_哔哩哔哩",
+              url: "https://wiki.biligame.com/ys/%E8%A7%92%E8%89%B2",
+            },
+          ]}
+        />
       </div>
     </UsersContext.Provider>
   );
