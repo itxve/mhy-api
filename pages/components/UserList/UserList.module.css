@@ -3,6 +3,8 @@
   flex-direction: column;
 }
 .user-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
 }
 .user-item:hover {
   background: rgb(177, 195, 227);
@@ -11,9 +13,9 @@
 .user-item {
   cursor: pointer;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
 }
 
 .user-item > span {
@@ -24,7 +26,7 @@
   font-size: 22px;
 }
 .user-span {
-  color: #b0a435;
+  color: rgb(100, 90, 83);
 }
 
 .user-item-active {
@@ -39,12 +41,25 @@
 .user-item-active > span {
   color: aliceblue;
 }
+.user-expire {
+  position: absolute;
+  background: rgb(214, 77, 53);
+  right: -5px;
+  font-size: 16px;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  top: -5px;
+}
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .user-item > span:first-child {
     font-size: 18px;
   }
   .user-item > :not(span:first-child) {
     font-size: 14px;
+  }
+  .user-card {
+    width: 98vw;
   }
 }

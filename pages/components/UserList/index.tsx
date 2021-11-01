@@ -25,6 +25,7 @@ function ListInfo({
   region_name,
   level,
   record,
+  expire,
 }: MH.D.UserInfo) {
   const { currentUser, setCurrentUser } = useContext(UsersContext);
   const isCurrent = currentUser!.game_uid === game_uid;
@@ -45,6 +46,12 @@ function ListInfo({
       <span>{level}级</span>
       <span>{region_name}</span>
       <span>累积签到{record?.total_sign_day}天</span>
+      {expire && (
+        <span
+          className={UserListStyle["user-expire"]}
+          title="Cookie过期"
+        ></span>
+      )}
     </div>
   );
 }

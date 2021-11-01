@@ -28,6 +28,7 @@ declare namespace MH {
       is_official: boolean;
       cookie: string;
       record: SignRecord;
+      expire: boolean;
     }> &
       Error;
 

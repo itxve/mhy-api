@@ -29,6 +29,12 @@ class Util {
   setLocalUsers(users: {}) {
     localStorage.setItem("account", JSON.stringify(users));
   }
+
+  expireUser(game_uid: string) {
+    const alls = this.getLocalUsers();
+    game_uid && (alls[game_uid].expire = true);
+    this.setLocalUsers(alls);
+  }
 }
 
 function typeOf(target: any, type: string) {

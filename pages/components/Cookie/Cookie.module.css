@@ -12,8 +12,8 @@
   z-index: 3;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .text {
-    width: 380px;
+    width: 98vw;
   }
 }

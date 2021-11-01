@@ -1,3 +1,4 @@
+import config from "@/config";
 export default class NetFetch {
   private Host: String;
   constructor(host: String) {
@@ -18,12 +19,6 @@ export default class NetFetch {
 
   handel(r: Response) {
     const contentTypes = (<Headers>r.headers).get("content-type");
-    if ("/event/bbs_sign_reward/sign" === r.url) {
-      const re = r.clone();
-      re.text().then((ee) => {
-        console.log(ee, "re.text");
-      });
-    }
     if (r.status === 200) {
       if (~contentTypes?.indexOf("application/json")!) {
         return r.json();
@@ -34,10 +29,11 @@ export default class NetFetch {
       const re = r.clone();
       re.json().then((rt) => {
         console.log(rt);
-        alert && alert(JSON.stringify(rt));
+        if (config.alert) {
+          alert && alert(JSON.stringify(rt));
+        }
       });
-
-      return Promise.reject();
+      return Promise.reject(r);
     }
   }
 
