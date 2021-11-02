@@ -14,6 +14,7 @@ export default function Link({ links }: { links: MH.C.LinkProps }) {
               key={e.url}
               href={e.url}
               target="_blank"
+              rel="noreferrer"
             >
               {e.name}
             </a>
