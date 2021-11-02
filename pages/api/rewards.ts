@@ -1,13 +1,18 @@
 import { S } from "@/endpoint";
 import { ACT_ID } from "@/constant";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { runCorsMiddleware } from "@/middleware";
 
 /**
  * 奖励列表接口
  * @param req
  * @param res
  */
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  await runCorsMiddleware(req, res);
   S.rewards(ACT_ID)
     .then(({ message, data }) => {
       if (message === "OK") {

@@ -1,10 +1,14 @@
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Awards from "@/pages/components/Awards";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <div className={styles.container}>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <main className={styles.main}>
         <Awards />
       </main>
@@ -17,7 +21,12 @@ export default function Home() {
         >
           Powered by{" "}
           <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <Image
+              src="/assets/vercel.svg"
+              alt="Vercel Logo"
+              width={72}
+              height={16}
+            />
           </span>
         </a>
       </footer>

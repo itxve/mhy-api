@@ -1,4 +1,4 @@
-import Loading from "@/assets/loading.svg";
+import Loading from "@/public/assets/loading.svg";
 import ButttonStyle from "./Buttton.module.css";
 import { MultipleClass } from "@/util";
 import { useState } from "react";
