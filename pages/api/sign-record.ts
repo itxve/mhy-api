@@ -7,7 +7,7 @@ import { runCorsMiddleware } from "@/middleware";
  * @param res
  */
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   await runCorsMiddleware(req, res); 
   const { cookie, region, game_uid }: MH.D.AwardsRecordRequest = req.body;
   S.signRecord({ cookie, region, game_uid })

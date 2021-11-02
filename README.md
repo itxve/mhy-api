@@ -9,7 +9,7 @@
 ```
 confirm("确认将cookie复制到剪切板中？")&&copy(document.cookie)
 ```
-![get Cookie](https://cdn.jsdelivr.net/gh/itxve/mhy-api/assets/cookie.jpg)
+![get Cookie](https://cdn.jsdelivr.net/gh/itxve/mhy-api/public/assets/cookie.jpg)
 
 ## Getting Started
 

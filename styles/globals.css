@@ -11,8 +11,8 @@
 
 html,
 body {
-  /* background: url("@/assets/pc.jpg") no-repeat;
-  background-size: cover; */
+  background: url("/assets/pc.jpg") no-repeat;
+  background-size: cover;
   background-color: var(--proeye);
   padding: 0;
   margin: 0;
@@ -31,7 +31,7 @@ a {
 
 @media screen and (max-width: 768px) {
   body {
-    background: url("@/assets/phone.jpg") no-repeat;
+    background: url("/assets/phone.jpg") no-repeat;
     background-size: cover;
   }
 }

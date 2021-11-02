@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   width: 60vw;
+  background-color: var(--card-bg);
 }
 
 .link-item {
-  color: var(--link-color);
+  color: rgba(46, 46, 197, 0.748);
   margin: 5px;
   text-decoration-line: underline;
 }

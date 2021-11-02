@@ -72,5 +72,10 @@ declare namespace MH {
     } & { children?: ReactNode | undefined };
     type Link = { name: string; url: string };
     type LinkProps = Link | Array<Link>;
+    type LoadingProps = {
+      loading: boolean;
+      width: number;
+      height: number;
+    };
   }
 }

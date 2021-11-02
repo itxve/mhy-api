@@ -38,8 +38,14 @@ export default class NetFetch {
   }
 
   getFetch(url: string, init?: RequestInit): Promise<any> {
-    return fetch(this.Host + url, { ...this.defalutHeaders, ...init }).then(
-      this.handel
-    );
+    return fetch(this.Host + url, { ...this.defalutHeaders, ...init })
+      .then(this.handel)
+      .then((e) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(e);
+          }, 10);
+        });
+      });
   }
 }
