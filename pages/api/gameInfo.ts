@@ -1,11 +1,16 @@
 import { S } from "../../endpoint";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { runCorsMiddleware } from "@/middleware";
 /**
  * 用户信息接口接口
  * @param req
  * @param res
  */
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  await runCorsMiddleware(req, res);
   const { cookie } = req.body;
   S.userGameInfo(cookie)
     .then((rt) => {

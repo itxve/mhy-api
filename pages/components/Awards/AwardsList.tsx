@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { UsersContext } from "@/hooks";
 import { MultipleClass } from "@/util";
 import { C } from "@/endpoint";
+import Loading from "@/pages/components/Loading";
 export default function AwardsList({ month, awards }: MH.C.AwardsListC) {
   return (
     <div className={AwardsStyle["awards-main"]}>
@@ -10,10 +11,11 @@ export default function AwardsList({ month, awards }: MH.C.AwardsListC) {
         <b>{month}</b>月签到奖励列表
       </div>
       <div className={AwardsStyle["list-awards"]}>
-        {awards &&
-          awards.map((it, index) => {
+        <Loading loading={!!awards}>
+          {awards?.map((it, index) => {
             return <AwardsItem key={"it" + index} {...{ ...it, index }} />;
           })}
+        </Loading>
       </div>
     </div>
   );

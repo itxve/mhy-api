@@ -1,5 +1,6 @@
 import { S } from "../../endpoint";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { runCorsMiddleware } from "@/middleware";
 /**
  * 奖励记录信息接口
  * @param req
@@ -7,6 +8,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
  */
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  await runCorsMiddleware(req, res); 
   const { cookie, region, game_uid }: MH.D.AwardsRecordRequest = req.body;
   S.signRecord({ cookie, region, game_uid })
     .then((rt) => {
