@@ -1,6 +1,7 @@
 import { FC } from "react";
 import LoadingComponent from "@/public/assets/loading.svg";
 import LoadingStyle from "./Loading.module.css";
+import Image from 'next/image'
 const Loading: FC<MH.C.LoadingProps> = ({
   loading,
   width,
@@ -9,7 +10,11 @@ const Loading: FC<MH.C.LoadingProps> = ({
 }) => {
   const style = { width, height };
   return loading ? (
-    <LoadingComponent className={LoadingStyle.img} style={style} />
+    <LoadingComponent
+      alt="图片不见了"
+      className={LoadingStyle.img}
+      style={style}
+    />
   ) : (
     <>{children}</>
   );

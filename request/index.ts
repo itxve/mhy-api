@@ -42,9 +42,7 @@ export default class NetFetch {
       .then(this.handel)
       .then((e) => {
         return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve(e);
-          }, 10);
+          resolve(e);
         });
       });
   }

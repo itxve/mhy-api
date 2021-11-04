@@ -5,6 +5,7 @@
   align-content: center;
   justify-content: center;
   width: 700px;
+  height: 670px;
 }
 .awards-main {
   background-color: var(--card-bg);
@@ -90,7 +91,7 @@
 
 .today-card {
   box-sizing: border-box;
-  border:  var(--award-today) solid 1px;
+  border: var(--award-today) solid 1px;
 }
 
 .bk {
@@ -143,6 +144,7 @@
   }
   .list-awards {
     width: 100%;
+    height: auto;
   }
   .icon {
     width: 56px;

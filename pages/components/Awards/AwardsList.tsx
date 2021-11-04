@@ -4,6 +4,7 @@ import { UsersContext } from "@/hooks";
 import { MultipleClass } from "@/util";
 import { C } from "@/endpoint";
 import Loading from "@/pages/components/Loading";
+import { AudioContext } from "@/hooks";
 export default function AwardsList({ month, awards }: MH.C.AwardsListC) {
   return (
     <div className={AwardsStyle["awards-main"]}>
@@ -28,8 +29,8 @@ const AwardsItem = ({
   icon,
   index,
 }: MH.D.Award & { index: number }) => {
-  const { currentUser, userSignRecord, setCurrentUser } =
-    useContext(UsersContext);
+  const { currentUser, setCurrentUser } = useContext(UsersContext);
+  const { audio } = useContext(AudioContext);
   //已经签到
   let signed = false;
   //可签到的flag
@@ -37,8 +38,8 @@ const AwardsItem = ({
   //今天
   let today = false;
   //可签到卡片标识
-  if (userSignRecord) {
-    const { total_sign_day, is_sign } = userSignRecord;
+  if (currentUser?.record) {
+    const { total_sign_day, is_sign } = currentUser.record;
     canSign = index === total_sign_day && !is_sign!;
     signed = index + 1 <= total_sign_day!;
     today = index + 1 === total_sign_day;
@@ -52,6 +53,7 @@ const AwardsItem = ({
           setCurrentUser?.(currentUser.game_uid);
         }
       );
+      audio?.play();
     }
   };
 

@@ -1,8 +1,9 @@
 .link-main {
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  width: 80vw;
   background-color: var(--card-bg);
+  border-radius: var(--border-radius);
 }
 
 .link-item {
