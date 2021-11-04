@@ -57,12 +57,16 @@ declare namespace MH {
 
   namespace Context {
     type UserContext = Partial<{
-      refreshUser: () => void;
+      refreshUser(): void;
       users: D.UserMap;
       currentUser: D.UserInfo;
       setCurrentUser: D.setCurrentUser;
       userSignRecord: D.SignRecord;
     }>;
+
+    type AudioContext = {
+      audio?: HTMLAudioElement;
+    };
   }
 
   namespace C {

@@ -2,15 +2,22 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Awards from "@/pages/components/Awards";
 import Head from "next/head";
+import MAudio from "@/pages/components/MAudio";
+import { useState } from "react";
+import { AudioContext } from "@/hooks";
 
 export default function Home() {
+  const [audio, setAudio] = useState<HTMLAudioElement>();
+
   return (
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Awards />
+        <AudioContext.Provider value={{ audio }}>
+          <Awards />
+        </AudioContext.Provider>
       </main>
 
       <footer className={styles.footer}>
@@ -29,6 +36,11 @@ export default function Home() {
             />
           </span>
         </a>
+        <MAudio
+          ref={(audioRef) => {
+            setAudio(audioRef?.audio);
+          }}
+        />
       </footer>
     </div>
   );

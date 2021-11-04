@@ -15,49 +15,80 @@ export default function Awards() {
     awards: [],
   });
   //用户列表
-  const [users, setUsers] = useState<MH.Context.UserContext["users"]>({});
+  const [users, setUserList] = useState<MH.Context.UserContext["users"]>({});
   //存储当前账号的key
   const [currentUser, setUser] = useState<MH.D.UserInfo>({});
-  //存储当前账号的签到信息
-  const [userSignRecord, setUserSignRecord] = useState<MH.D.SignRecord>({});
   //刷新用户列表
   const refreshUser = () => {
     const alls = util.getLocalUsers();
-    setUsers(alls);
+    setUserList(alls);
     const firstUser: MH.D.UserInfo | undefined = Object.values(alls).find(
       (_, index) => index === 0
     );
     if (firstUser && Object.keys(currentUser).length <= 0) {
       setCurrentUser(firstUser.game_uid);
-    } else {
-      setCurrentUser(currentUser!.game_uid);
     }
   };
+
+  //设置当前用户
+  const setCurrentUser: MH.D.setCurrentUser = (game_uid) => {
+    const user = util.getLocalUsers()[game_uid!];
+    if (user?.cookie) {
+      C.signRecord({
+        cookie: user.cookie!,
+        region: user.region!,
+        game_uid: user.game_uid!,
+      })
+        .then((res) => {
+          const account = util.getLocalUsers();
+          account[`${user.game_uid}`].record = res;
+          account[`${user.game_uid}`].expire = false;
+          util.setLocalUsers(account);
+          setUser(user);
+          refreshUser();
+        })
+        .catch((e) => {
+          util.expireUser(game_uid!);
+          user.record = {};
+          setUser(user);
+        });
+    }
+  };
+
   //跟新本地用户信息
   const refreshRemoteUserInfo = () => {
     console.log("refresh remote...");
     const alls = util.getLocalUsers();
-    Object.values(alls).forEach((it) => {
-      it.cookie &&
-        C.userGameInfo(it.cookie)
-          .then((r) => {
-            const { list } = r;
-            list.map((user: MH.D.UserInfo) => {
-              //更新本地的用户信息
-              user.game_uid &&
-                ((alls[user.game_uid] = Object.assign(
-                  alls[user.game_uid],
-                  user
-                )),
-                util.setLocalUsers(alls)),
-                refreshUser();
-            });
-          })
-          .catch((e) => {
-            //标识凭证过期
-            console.log(it.game_uid + "::expired");
-            util.expireUser(it.game_uid!), refreshUser();
+    Promise.all<void>(
+      Object.values(alls)
+        .filter((it) => it.cookie)
+        .map((it) => {
+          return new Promise((resolve, reject) => {
+            C.userGameInfo(it.cookie!)
+              .then((r) => {
+                const { list } = r;
+                list.map((user: MH.D.UserInfo) => {
+                  //更新本地的用户信息
+                  alls[user.game_uid!] = Object.assign(
+                    alls[user.game_uid!],
+                    user
+                  );
+                  resolve();
+                });
+              })
+              .catch((e) => {
+                //标识凭证过期
+                console.log(it.game_uid + "::expired", e);
+                alls[it.game_uid!].record = {};
+                alls[it.game_uid!].expire = true;
+                resolve();
+              });
           });
+        })
+    ).then(() => {
+      util.setLocalUsers(alls);
+      console.log("alls", alls);
+      refreshUser();
     });
   };
 
@@ -76,29 +107,6 @@ export default function Awards() {
     });
   };
 
-  const setCurrentUser: MH.D.setCurrentUser = (game_uid) => {
-    const user = util.getLocalUsers()[game_uid!];
-    if (user?.cookie) {
-      C.signRecord({
-        cookie: user.cookie!,
-        region: user.region!,
-        game_uid: user.game_uid!,
-      })
-        .then((res) => {
-          setUser(user);
-          const account = util.getLocalUsers();
-          account[`${user.game_uid}`].record = res;
-          account[`${user.game_uid}`].expire = false;
-          util.setLocalUsers(account);
-          setUserSignRecord(res);
-        })
-        .catch((e) => {
-          setUser(user);
-          util.expireUser(game_uid!);
-        });
-    }
-  };
-
   return (
     <UsersContext.Provider
       value={{
@@ -106,7 +114,6 @@ export default function Awards() {
         users,
         currentUser,
         setCurrentUser,
-        userSignRecord,
       }}
     >
       <div className={AwardsStyles["awards-container"]}>
