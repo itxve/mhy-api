@@ -28,4 +28,6 @@ const MAudio = forwardRef<MH.Context.AudioContext, MAudioProps>(
     );
   }
 );
+MAudio.displayName = "MAudio";
+
 export default MAudio;
