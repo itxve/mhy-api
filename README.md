@@ -1,18 +1,21 @@
-## 原神米游社签到
-- 米游社原神签到网页版（支持多账号）
-- vercel接口返回有点慢 emmm...
+## 前言
+- 原神米游社签到网页版（支持多账号）
+- vercel接口有点慢...
+
 ## 原神米游社有签到功能为啥还要写网页版（可能闲的）
 ## Cookie如何获取
-获取自己的Cookie信息
-
-通过浏览器登录米哈游论坛 https://bbs.mihoyo.com/ys/
-
-按F12，打开开发者工具 -> Console
+- 通过浏览器登录米哈游论坛 https://bbs.mihoyo.com/ys/
+- 按F12，打开开发者工具 -> Console
 
 ```
 confirm("确认将cookie复制到剪切板中？")&&copy(document.cookie)
 ```
 ![get Cookie](https://cdn.jsdelivr.net/gh/itxve/mhy-api/public/assets/cookie.jpg)
+
+## demo
+- [在线预览](https://mhy-api.vercel.app/)
+
+- ![demo](https://cdn.jsdelivr.net/gh/itxve/mhy-api/public/assets/screen.png)
 
 ## Getting Started
 

@@ -4,14 +4,14 @@
   --award-boder: rgb(113 117 136);
   --link-color: wheat;
   --received-boder: red;
-  --card-bg: rgba(221, 216, 209, 0.85);
+  --card-bg: rgba(221, 216, 209, 0.85); 
   --border-radius: 2px;
   --award-today: #fb6304;
 }
 
 html,
 body {
-  background: url("/assets/pc.jpg") no-repeat;
+  background: url("/assets/pc.webp"), url("/assets/pc.jpg") no-repeat;
   background-size: cover;
   background-color: var(--proeye);
   padding: 0;
