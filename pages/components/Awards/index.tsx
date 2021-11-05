@@ -22,12 +22,6 @@ export default function Awards() {
   const refreshUser = () => {
     const alls = util.getLocalUsers();
     setUserList(alls);
-    const firstUser: MH.D.UserInfo | undefined = Object.values(alls).find(
-      (_, index) => index === 0
-    );
-    if (firstUser && Object.keys(currentUser).length <= 0) {
-      setCurrentUser(firstUser.game_uid);
-    }
   };
 
   //设置当前用户
@@ -87,7 +81,6 @@ export default function Awards() {
         })
     ).then(() => {
       util.setLocalUsers(alls);
-      console.log("alls", alls);
       refreshUser();
     });
   };

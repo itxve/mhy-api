@@ -4,18 +4,20 @@
   --award-boder: rgb(113 117 136);
   --link-color: wheat;
   --received-boder: red;
-  --card-bg: rgba(221, 216, 209, 0.85); 
+  --card-bg: rgba(221, 216, 209, 0.85);
   --border-radius: 2px;
   --award-today: #fb6304;
 }
 
 html,
 body {
-  background: url("/assets/pc.webp"), url("/assets/pc.jpg") no-repeat;
+  /* 清晰的方前面 ,图的顺序是正序 */
+  background: url("/assets/pc.jpg") no-repeat, url("/assets/pc.webp") no-repeat;
   background-size: cover;
   background-color: var(--proeye);
   padding: 0;
   margin: 0;
+  background-attachment: inherit;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji;
 }
