@@ -27,6 +27,7 @@ export default function Awards() {
   //设置当前用户
   const setCurrentUser: MH.D.setCurrentUser = (game_uid) => {
     const user = util.getLocalUsers()[game_uid!];
+    console.log(user, "user...");
     if (user?.cookie) {
       C.signRecord({
         cookie: user.cookie!,
@@ -38,7 +39,7 @@ export default function Awards() {
           account[`${user.game_uid}`].record = res;
           account[`${user.game_uid}`].expire = false;
           util.setLocalUsers(account);
-          setUser(user);
+          setUser(account[`${user.game_uid}`]);
           refreshUser();
         })
         .catch((e) => {
