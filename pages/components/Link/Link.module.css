@@ -11,3 +11,9 @@
   margin: 5px;
   text-decoration-line: underline;
 }
+
+@media screen and (max-width: 768px) {
+  .link-main {
+    width: 98vw;
+  }
+}

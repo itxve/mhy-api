@@ -30,3 +30,13 @@ function sign({ cookie, region, game_uid }: MH.D.SignRequest) {
 }
 
 export { rewards, userGameInfo, signRecord, sign };
+
+const bbsNet = new NetFetch("https://bbs-api.mihoyo.com");
+//
+
+function getUserFullInfo(cookie: string) {
+  const headers = util.getHeader(cookie);
+  return bbsNet.getFetch("/user/wapi/getUserFullInfo", { headers });
+}
+
+export { getUserFullInfo };
