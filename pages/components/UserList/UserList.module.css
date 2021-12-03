@@ -14,7 +14,7 @@
   cursor: pointer;
   display: flex;
   position: relative;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -27,6 +27,12 @@
 }
 .user-span {
   color: rgb(100, 90, 83);
+}
+
+.user-item-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
 }
 
 .user-item-active {

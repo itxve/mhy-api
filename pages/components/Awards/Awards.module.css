@@ -1,15 +1,21 @@
+.awards-card {
+  background-color: var(--card-bg);
+  border-radius: 5px;
+  width: 870px;
+  position: relative;
+  background-image: url("/assets/content.png");
+  background-size: 100% 100%;
+  opacity: 0.9;
+}
 .list-awards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  width: 700px;
-  height: 670px;
-}
-.awards-main {
-  background-color: var(--card-bg);
-  border-radius: 5px;
+  width: 850px;
+  height: 770px;
+  margin: 178px 0px 128px;
 }
 .list-main {
   display: flex;
@@ -21,100 +27,21 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.signed {
-  filter: grayscale(50%);
-}
 
-.received {
-  position: absolute;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  color: red;
-  transform: skewY(-15deg);
-  background-color: transparent;
-  font-weight: 800;
-  filter: unset;
-  border: var(--border-radius) solid red;
-  z-index: 5;
-  text-align: center;
-  cursor: pointer;
-  filter: grayscale(60%);
-}
-
-.badge {
-  position: absolute;
-  right: -8px;
-  top: -8px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background-color: #eacb3f;
-  filter: contrast(200%) drop-shadow(2px 4px 6px rgb(180, 120, 23));
-  color: #a45d21;
-  font-weight: 800;
-  z-index: 5;
-  text-align: center;
-  cursor: pointer;
-  animation: change 1s ease 0s infinite alternate forwards;
-}
-
-@keyframes change {
-  0% {
-    right: -8px;
-  }
-  30% {
-    right: -6px;
-  }
-  30% {
-    right: -10px;
-  }
-  100% {
-    right: -6px;
-  }
-}
-
-.name {
-  text-align: center;
-}
-.day-text {
-  text-align: center;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-  border-top: 1px solid var(--award-boder);
-}
-
-.today-card {
-  box-sizing: border-box;
-  border: var(--award-today) solid 1px;
-}
-
-.bk {
-  background: linear-gradient(
-    to right,
-    rgb(251, 202, 204, 0.3),
-    rgb(64, 166, 252, 0.3)
-  );
-}
-
-.icon {
-  width: 80px;
-  height: 80px;
-  border-bottom: 1px solid var(--award-boder);
-}
 .month-text {
-  text-align: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #3a3a3a;
+  font-weight: 700;
 }
 .month-text > b {
   font-size: 22px;
-  color: transparent;
-  background: linear-gradient(15deg, #d7829a, #4a9df8);
-  background-clip: text;
+  color: #c05d2c;
+}
+.month-text > span {
+  font-size: 18px;
+  color: #3b7f9b;
 }
 
 .awards-container {
@@ -135,28 +62,27 @@
 }
 
 @media screen and (max-width: 768px) {
+  .awards-card {
+    width: 98vw;
+    height: 970px;
+    background-image: unset;
+  }
+  .month-text {
+    top: 10px;
+    left: 10px;
+  }
+
   .awards-container {
     flex-direction: column;
     align-items: flex-start;
   }
   .list-main {
     margin: 5px 5px;
+    width: 56px;
   }
   .list-awards {
     width: 100%;
     height: auto;
-  }
-  .icon {
-    width: 56px;
-    height: 56px;
-  }
-  .received {
-    width: 56px;
-    height: 56px;
-    font-weight: 400;
-    border: var(--border-radius) solid var(--received-boder);
-  }
-  .list-main {
-    width: 56px;
+    margin: 40px 0px 128px;
   }
 }

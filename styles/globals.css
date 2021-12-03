@@ -12,11 +12,16 @@
 html,
 body {
   /* 图的顺序是正序的，第一个会先请求，如果刚好是同一组请求，后面小的会先请求完成,如果不是一组还是会先加载那个大的 👎👎👎踩坑👎👎👎 */
-  background: url("/assets/pc.jpg") no-repeat, url("/assets/pc.webp") no-repeat;
-  background-size: cover;
+  /* background: url("/assets/pc.jpg") no-repeat, url("/assets/pc.webp") no-repeat; */
+  background-image: url("/assets/pc.webp");
+  background-size: 100% 100%;
   background-color: var(--proeye);
   padding: 0;
   margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-attachment: inherit;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji;

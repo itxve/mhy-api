@@ -6,7 +6,7 @@ export default function Link({ links }: { links: MH.C.LinkProps }) {
     <div className={LinkStyle["link-main"]}>
       {lks
         .concat(links)
-        .filter((e) => !!e)
+        .filter((e) => e)
         .map((e) => {
           return (
             <a

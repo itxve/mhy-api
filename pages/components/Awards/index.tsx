@@ -134,6 +134,10 @@ export default function Awards() {
               name: "原神WIKI_BWIKI_哔哩哔哩",
               url: "https://wiki.biligame.com/ys/%E8%A7%92%E8%89%B2",
             },
+            {
+              name: "Hoyolab",
+              url: "https://webstatic-sea.mihoyo.com/ys/event/signin-sea/index.html?act_id=e202102251931481&utm_source=link&lang=zh-cn",
+            },
           ]}
         />
       </div>

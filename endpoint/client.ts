@@ -37,4 +37,13 @@ function sign({ cookie, region, game_uid }: MH.D.SignRequest) {
   });
 }
 
-export { rewards, userGameInfo, signRecord, sign };
+function getUserFullInfo(cookie: string) {
+  return Net.postFetch(`/user-full-Info`, {
+    body: JSON.stringify({ cookie }),
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  });
+}
+
+export { rewards, userGameInfo, signRecord, sign, getUserFullInfo };

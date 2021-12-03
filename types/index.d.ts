@@ -23,6 +23,7 @@ declare namespace MH {
       game_uid: string; //游戏UID
       nickname: string; //游戏名
       level: number; //等级
+      avatar_url: string; //米游社的头像
       is_chosen: boolean;
       region_name: string; //大区名
       is_official: boolean;

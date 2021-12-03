@@ -26,6 +26,7 @@ function ListInfo({
   level,
   record,
   expire,
+  avatar_url,
 }: MH.D.UserInfo) {
   const { currentUser, setCurrentUser } = useContext(UsersContext);
   const isCurrent = currentUser!.game_uid === game_uid;
@@ -42,6 +43,7 @@ function ListInfo({
         { [UserListStyle["user-item-active"]]: isCurrent },
       ])}
     >
+      <img className={UserListStyle["user-item-img"]} src={avatar_url} />
       <span>{nickname}</span>
       <span>{level}级</span>
       <span>{region_name}</span>

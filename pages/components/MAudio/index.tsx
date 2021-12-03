@@ -13,17 +13,19 @@ const GetObject = () => {
 type MAudioProps = {};
 const MAudio = forwardRef<MH.Context.AudioContext, MAudioProps>(
   (props, audioRef) => {
+    //audioRef当前组件的引用
     const [srcMp3, setSrcMp3] = useState("");
     useEffect(() => {
       setSrcMp3(GetObject());
     }, []);
-    const ref = useRef<HTMLAudioElement>(null);
+    const mp3Ref = useRef<HTMLAudioElement>(null);
+    //暴露属性
     useImperativeHandle(audioRef, () => ({
-      audio: ref.current!,
+      audio: mp3Ref.current!,
     }));
     return (
       <div style={{ display: "none" }}>
-        {srcMp3 && <audio ref={ref} src={srcMp3}></audio>}
+        {srcMp3 && <audio ref={mp3Ref} src={srcMp3}></audio>}
       </div>
     );
   }
