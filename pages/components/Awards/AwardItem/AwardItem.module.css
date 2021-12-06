@@ -104,12 +104,14 @@
     font-size: 14px;
   }
   .item-day-text {
+    font-size: 14px;
     bottom: 0px;
   }
 
   .item-received-text {
-    width: 3.3rem;
+    width: 3.1rem;
     height: 3.1rem;
+    font-size: 14px;
     left: 6px;
     top: 14px;
   }
