@@ -1,5 +1,6 @@
 import NetFetch from "@/request";
 import config from "@/config";
+import { MH } from "@/types";
 
 const Net = new NetFetch(config.ApiServer + "/api");
 
