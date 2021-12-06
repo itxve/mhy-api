@@ -1,6 +1,7 @@
 import NetFetch from "../request";
 import util from "@/util";
 import { ACT_ID } from "@/constant";
+import { MH } from "@/types";
 const Net = new NetFetch("https://api-takumi.mihoyo.com");
 
 function rewards(act_id: string) {
