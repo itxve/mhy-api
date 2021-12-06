@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 // Initializing the cors middleware
 const cors = Cors({
-  methods: ["GET", "HEAD", "POST"],
+  methods: ["GET", "HEAD", "POST", "OPTION"],
 });
 
 // Helper method to wait for a middleware to execute before continuing

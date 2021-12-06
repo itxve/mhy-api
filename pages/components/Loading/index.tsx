@@ -1,7 +1,7 @@
 import { FC } from "react";
 import LoadingComponent from "@/public/assets/loading.svg";
 import LoadingStyle from "./Loading.module.css";
-import Image from 'next/image'
+import { MH } from "@/types";
 const Loading: FC<MH.C.LoadingProps> = ({
   loading,
   width,

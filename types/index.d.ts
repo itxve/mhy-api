@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 declare namespace MH {
   namespace D {
     type SignRequest = AwardsRecordRequest;
@@ -54,6 +56,13 @@ declare namespace MH {
       total_sign_day: number; //已签到天数
     }> &
       Error;
+
+    type OptionalComponent = {
+      of: (
+        predicate: boolean,
+        componentFunction: () => ReactElement | undefined
+      ) => ReactElement | undefined;
+    };
   }
 
   namespace Context {
@@ -62,7 +71,6 @@ declare namespace MH {
       users: D.UserMap;
       currentUser: D.UserInfo;
       setCurrentUser: D.setCurrentUser;
-      userSignRecord: D.SignRecord;
     }>;
 
     type AudioContext = {

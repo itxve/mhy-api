@@ -5,7 +5,7 @@
   position: relative;
   background-image: url("/assets/content.png");
   background-size: 100% 100%;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 .list-awards {
   display: flex;
@@ -61,12 +61,96 @@
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+.load-text {
+  padding-top: 20px;
+  position: relative;
+  font-weight: 700;
+  color: var(--m-color);
+}
+
+.open {
+  width: 98vw;
+  height: 80px;
+  text-align: center;
+}
+.open::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 13px;
+  background-size: cover;
+  top: 50px;
+  left: 48%;
+  background-image: url("/assets/load-more.png");
+}
+
+.close {
+  width: 98vw;
+  height: 80px;
+  text-align: center;
+}
+
+.close::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 13px;
+  background-size: cover;
+  top: 50px;
+  left: 48%;
+  background-image: url("/assets/load-more.png");
+  transform: rotate(180deg);
+}
+
+.open-img {
+  background-image: url("/assets/mobile-open-bg.jpg");
+  background-size: 100% 100%;
+}
+
+.close-img {
+  background-image: url("/assets/mobile-close-bg.jpg");
+  background-size: 100% 100%;
+}
+
+.sign-text {
+  position: absolute;
+  top: 8.1rem;
+  right: 4rem;
+  font-weight: 600;
+  color: #f5ebe9;
+}
+.sign-day-text {
+  position: absolute;
+  top: 6.6rem;
+  left: 11rem;
+  color: #f5ebe9;
+  font-weight: 900;
+  font-size: 28px;
+}
+
+@media screen and (max-width: 767px) {
+  .sign-text {
+    top: 4.8rem;
+    right: 2rem;
+  }
+  .sign-day-text {
+    font-weight: 900;
+    font-size: 18px;
+    top: 4.2rem;
+    left: 6rem;
+  }
   .awards-card {
     width: 98vw;
-    height: 970px;
-    background-image: unset;
+    height: 100%;
+    display: flex;
+    justify-content: center;
   }
+  .list-awards {
+    width: 92%;
+    height: 100%;
+    margin: 140px 0px 58px;
+  }
+
   .month-text {
     top: 10px;
     left: 10px;
@@ -78,11 +162,6 @@
   }
   .list-main {
     margin: 5px 5px;
-    width: 56px;
-  }
-  .list-awards {
-    width: 100%;
-    height: auto;
-    margin: 40px 0px 128px;
+    width: 3.85rem;
   }
 }
