@@ -36,6 +36,7 @@ export default class NetFetch {
       return Promise.reject(r);
     }
   }
+  
 
   getFetch(url: string, init?: RequestInit): Promise<any> {
     return fetch(this.Host + url, { ...this.defalutHeaders, ...init })

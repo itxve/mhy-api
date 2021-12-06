@@ -10,6 +10,7 @@
     "clear": "rm -rf .next/"
   },
   "dependencies": {
+    "@react-hook/media-query": "^1.1.1",
     "@svgr/webpack": "^5.5.0",
     "cors": "^2.8.5",
     "md5": "^2.3.0",

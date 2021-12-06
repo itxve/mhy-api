@@ -4,6 +4,7 @@ import { UsersContext } from "@/hooks";
 import { MultipleClass } from "@/util";
 import { C } from "@/endpoint";
 import { AudioContext } from "@/hooks";
+import { MH } from "@/types";
 //单个奖励
 const AwardsItem = ({
   name,

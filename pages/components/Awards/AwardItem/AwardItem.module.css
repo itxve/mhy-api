@@ -7,12 +7,12 @@
 }
 .item-container-normal {
   background: url("/assets/normal.png") no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 .item-container-active {
   background: url("/assets/active.png") no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 .item-count {
@@ -81,23 +81,26 @@
   transform: translateX(-50%);
   top: 13px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+  .item-container {
+    width: 3.8rem;
+    height: 6.1rem;
+    margin: 4px;
+  }
   .item-icon {
-    width: 65px;
-    height: 65px;
-    top: 8px;
+    width: 60px;
+    height: 60px;
+    padding: 2px;
+    top: 10px;
   }
 
   .item-received {
-    width: 70px;
+    width: 68px;
     height: 100px;
   }
-  .item-container {
-    width: 70px;
-    height: 100px;
-  }
+
   .item-count {
-    bottom: 15px;
+    bottom: 19px;
     font-size: 14px;
   }
   .item-day-text {
@@ -105,9 +108,9 @@
   }
 
   .item-received-text {
-    width: 55px;
-    height: 55px;
+    width: 3.3rem;
+    height: 3.1rem;
     left: 6px;
-    top: 16px;
+    top: 14px;
   }
 }

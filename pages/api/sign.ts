@@ -1,6 +1,7 @@
 import { S } from "../../endpoint";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { runCorsMiddleware } from "@/middleware";
+import { MH } from "@/types";
 /**
  * 签到接口
  * @param req

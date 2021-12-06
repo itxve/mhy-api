@@ -4,9 +4,10 @@
   --award-boder: rgb(113 117 136);
   --link-color: wheat;
   --received-boder: red;
-  --card-bg: rgba(221, 216, 209, 0.85);
+  --card-bg: rgb(210 189 159 / 85%);
   --border-radius: 2px;
   --award-today: #fb6304;
+  --m-color: #a06e43;
 }
 
 html,

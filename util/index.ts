@@ -1,3 +1,4 @@
+import { MH } from "@/types";
 import md5 from "md5";
 class Util {
   //生成DS
@@ -66,5 +67,22 @@ export function MultipleClass(className: MH.D.ClassNameCombine): string {
   }
   return "";
 }
+
+/**
+ * 返回一个范围数组
+ * @param {*} start
+ * @param {*} end
+ */
+export function range(start: number, end: number) {
+  return Array.from({ length: end }, (_, i) => i).filter((_, i) => i >= start);
+}
+
+export const OptionalComponent: MH.D.OptionalComponent = {
+  of: (predicate, componentFunction) => {
+    if (predicate) {
+      return componentFunction();
+    }
+  },
+};
 
 export default new Util();

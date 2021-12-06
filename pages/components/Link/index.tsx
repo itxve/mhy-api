@@ -1,3 +1,4 @@
+import { MH } from "@/types";
 import LinkStyle from "./Link.module.css";
 
 export default function Link({ links }: { links: MH.C.LinkProps }) {

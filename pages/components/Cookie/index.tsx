@@ -4,6 +4,7 @@ import Button from "@/pages/components/Button";
 import { C } from "@/endpoint";
 import { UsersContext } from "@/hooks";
 import util from "@/util";
+import { MH } from "@/types";
 export default function Cookie() {
   return <CookieTextAreaVolidata />;
 }

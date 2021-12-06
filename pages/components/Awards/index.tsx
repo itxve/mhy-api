@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { C } from "@/endpoint";
-import AwardsList from "./AwardsList";
 import Cookie from "@/pages/components/Cookie";
 import AwardsStyles from "./Awards.module.css";
 import UserList from "@/pages/components/UserList";
 import { UsersContext } from "@/hooks";
 import util from "@/util";
 import Link from "@/pages/components/Link";
+import { MH } from "@/types";
+import dynamic from "next/dynamic";
+//@See https://github.com/vercel/next.js/discussions/17443
+const AwardsList = dynamic(import("./AwardsList"), { ssr: false });
 
 export default function Awards() {
   //奖励列表
