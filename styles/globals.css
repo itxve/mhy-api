@@ -3,6 +3,7 @@
   --text: rgb(64, 152, 224);
   --award-boder: rgb(113 117 136);
   --link-color: wheat;
+  --link-color-bright: rgb(60, 129, 153);
   --received-boder: red;
   --card-bg: rgb(210 189 159 / 85%);
   --border-radius: 2px;
@@ -29,8 +30,8 @@ body {
 }
 
 a {
-  color: var(--link-color);
-  text-decoration: none;
+  color: var(--link-color-bright);
+  text-decoration-color: var(--link-color-bright);
 }
 
 * {
