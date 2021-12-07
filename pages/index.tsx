@@ -36,6 +36,23 @@ export default function Home() {
             />
           </span>
         </a>
+
+        <a
+          href="https://github.com/itxve/mys-ys-sign"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          项目源码{" "}
+          <span className={styles.logo}>
+            <Image
+              src="/assets/github.svg"
+              alt="项目源码"
+              width={18}
+              height={18}
+            />
+          </span>
+        </a>
+
         <MAudio
           ref={(audioRef) => {
             setAudio(audioRef?.audio);
